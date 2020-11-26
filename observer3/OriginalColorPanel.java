@@ -13,7 +13,6 @@ public class OriginalColorPanel extends ColorPanel implements ChangeListener {
         DisplayColors.brightnessSlider.addChangeListener(this);
     }
 
-
     public void stateChanged(ChangeEvent e) {
         if (DisplayColors.hueSlider != null && DisplayColors.saturationSlider != null && DisplayColors.brightnessSlider != null) {
             float newHue = (float) DisplayColors.hueSlider.getValue() / 100;

@@ -14,14 +14,14 @@ public class ComplementaryColorPanel extends ColorPanel implements ChangeListene
 
     public void stateChanged(ChangeEvent e) {
         if (DisplayColors.hueSlider != null && DisplayColors.saturationSlider != null && DisplayColors.brightnessSlider != null) {
-            float newHue = (float) DisplayColors.hueSlider.getValue() / 100 - (float) .5;
-            if (newHue < 0){
-                newHue = newHue + 1;
+            float complementaryHue = (float) DisplayColors.hueSlider.getValue() / 100 - (float) .5;
+            if (complementaryHue < 0){
+                complementaryHue = complementaryHue + 1;
             }
             float newSaturation = (float) DisplayColors.saturationSlider.getValue() / 100;
             float newBrightness = (float) DisplayColors.brightnessSlider.getValue() / 100;
-            Color newColor = Color.getHSBColor(newHue, newSaturation, newBrightness);
-            this.setColor(newColor);
+            Color newCompColor = Color.getHSBColor(complementaryHue, newSaturation, newBrightness);
+            this.setColor(newCompColor);
         }
 
     }

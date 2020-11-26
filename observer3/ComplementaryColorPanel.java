@@ -11,12 +11,16 @@ public class ComplementaryColorPanel extends ColorPanel implements PropertyChang
     }
 
     public void propertyChange(PropertyChangeEvent evt) {
-        float newHue = DisplayColors.originalColorPanel.getHue() - (float) .5;
-        if (newHue < 0){
-            newHue = newHue + 1;
+        float originalHue = DisplayColors.originalColorPanel.getHue();
+        float orginalSat = DisplayColors.originalColorPanel.getSaturation();
+        float orginalBright = DisplayColors.originalColorPanel.getBrightness();
+
+        float complementaryHue = originalHue - (float) .5;
+        if (complementaryHue < 0){
+            complementaryHue = complementaryHue + 1;
         }
-        Color newColor = Color.getHSBColor(newHue, DisplayColors.originalColorPanel.getSaturation(), DisplayColors.originalColorPanel.getBrightness());
-        this.setColor(newColor);
+        Color newCompColor = Color.getHSBColor(complementaryHue,orginalSat, orginalBright);
+        this.setColor(newCompColor);
     }
 
 
